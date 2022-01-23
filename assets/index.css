@@ -1,0 +1,30 @@
+.chat-main {
+    width: 75%;;
+}
+
+.channel-button {
+    border-width: 0px;
+}
+
+.channel-button:focus {
+    outline: none;
+}
+
+.fixed-row-bottom {
+    bottom: 0;
+    position: fixed;
+}
+
+.main-container {
+    justify-content: center;
+}
+
+.row-past-messages {
+    height: calc(100vh - 7.5em);
+    margin-bottom: 0;
+}
+
+.profile-col {
+    max-width: 5rem;
+    max-height: 5rem;
+}

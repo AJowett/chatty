@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        {% block head %}
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        {% block styles %}
+            <!-- Bootstrap CSS -->
+            {{ bootstrap.load_css() }}
+
+            <!-- Main CSS Style Sheet -->
+            <!--<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">-->
+        
+        {% endblock %}
+
+        <title>Chatty - {% block title %}{% endblock %}</title>
+        {% endblock %}
+    </head>
+    <body>
+        <!-- Your page content -->
+        {% block body %}
+
+            <!-- Navbar -->
+            {% block navbar %} 
+            <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+                <a class="navbar-brand" href="/">Chatty</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('main.chat') }}">Chat</a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-">
+                        {% if current_user.is_authenticated %}
+                        <li class="nav-item dropdown">
+                          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                            <img src="{{ current_user.gravatar(size=18) }}">
+                            Account <b class="caret"></b>
+                          </a>
+                          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ url_for('main.user', username=current_user.username) }}">Profile</a>
+                            <a class="dropdown-item" href="{{ url_for('auth.change_email') }}">Change Email</a>
+                            <a class="dropdown-item" href="{{ url_for('auth.change_password') }}">Change Password</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{ url_for('auth.logout') }}">Log Out</a>
+                          </div>
+                        </li>
+                        {% else %}
+                        <li><a class="nav-link" href="{{ url_for('auth.login') }}">Log In</a></li>
+                        {% endif %}
+                      </ul>
+                </div>
+            </nav>
+            {% endblock %}
+
+            <!-- Main Page Content -->
+            {% block content %}
+            <div id="root">
+                <!-- Alerts -->
+                {% for message in get_flashed_messages() %}
+                <div class="alert alert-warning alert-dismissible" role="alert">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  {{ message }}
+                </div>
+                {% endfor %}
+                
+                <!-- Page Content -->
+                {% block page_content %} {% endblock %}
+            </div>
+            {% endblock %}
+
+            <!-- Additional Scripts -->
+            {% block scripts %}
+                <!-- Optional JavaScript -->
+                {{ bootstrap.load_js() }}
+            {% endblock %}
+
+        {% endblock body %}
+    </body>
+</html>

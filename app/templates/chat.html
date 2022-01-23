@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block title %} Chat {% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    <!-- Include the react components for the chat -->
+    <script src="{{ url_for('static', filename='index-bundle.js') }}"></script>
+{% endblock %}

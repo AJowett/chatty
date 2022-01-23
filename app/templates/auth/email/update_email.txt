@@ -1,0 +1,10 @@
+Dear {{ user.username }},
+
+To change your email, please click on the following link:
+{{ url_for('auth.update_email', token=token, _external=true) }}
+
+Sincerely,
+
+The Chatty Team
+
+Note: replies to this email address are not monitored
