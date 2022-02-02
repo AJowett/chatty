@@ -2,6 +2,7 @@ const path = require('path');
 
 module.exports = {
   entry: './assets/index.js',  // path to our input file
+  devtool: "cheap-module-source-map",
   output: {
     filename: 'index-bundle.js',  // output bundle file name
     path: path.resolve(__dirname, './app/static'),  // path to our static directory

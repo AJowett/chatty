@@ -14,7 +14,7 @@ function Message(props) {
                             <b>{props.message.username}</b>
                         </div>
                         <div className='col text-secondary'>
-                            {moment(props.message.timestamp).format('h:mm a')}
+                            {moment.utc(props.message.timestamp).local().format('MMM Do @ h:mm a')}
                         </div>
                     </div>
                     <div className='row message-body'>

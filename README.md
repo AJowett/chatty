@@ -1,9 +1,11 @@
 
-# Chatty
+# Chatty <!-- omit in toc -->
 Online Chat Application
 
-- [Chatty](#chatty)
 - [Project Structure](#project-structure)
+- [TODO](#todo)
+  - [Messaging](#messaging)
+  - [WebRTC](#webrtc)
 
 
 # Project Structure
@@ -23,3 +25,16 @@ Online Chat Application
 └── migrations                  # Database migration files 
     └── versions                    # Migration scripts
 ```
+
+# TODO
+## Messaging
+- [ ] Markdown/Rich text support for messages
+- [x] Save messages to DB
+- [x] Display past messages in channel
+- [ ] Direct messages between users
+- [ ] Channel Visibility
+- [ ] User Permissions
+
+## WebRTC
+- [ ] Add Audio Channels
+- [ ] Add Video Channels
